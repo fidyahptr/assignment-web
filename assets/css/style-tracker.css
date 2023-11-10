@@ -31,3 +31,9 @@ body{
 .border-expense{
     border-right: 4px solid #dc3545;
 }
+
+@media screen and (max-width: 500px) {
+    .tracker__card{
+        width: 350px;
+    }
+}
