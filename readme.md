@@ -1,3 +1,7 @@
+# Link Deployment
+
+https://assignment-web-basic-fidyah.vercel.app/index.html
+
 # Assignment Project HTML, CSS, and Javascript
 
 In this assignment, you have the task to develop a portfolio website with its own expense tracker.

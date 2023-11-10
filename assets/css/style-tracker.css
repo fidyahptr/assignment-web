@@ -7,7 +7,27 @@ body{
 
 .tracker__card{
     padding: 2rem;
-    width: 500px;
+    width: 450px;
     border-radius: 15px 50px; 
     box-shadow: 5px 5px 20px #1c1c1c, 10px 10px 20px #1c1c1c, 15px 15px 20px #1c1c1c;
+}
+
+.tracker__form__input {
+ font-size: 14px;
+}
+
+.history__icon__trash{
+    cursor: pointer;
+}
+
+.btn{
+    background-color: #2D3146;
+}
+
+.border-income{
+    border-right: 4px solid #198754;;
+}
+
+.border-expense{
+    border-right: 4px solid #dc3545;
 }

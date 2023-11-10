@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item fw-bold">
-                            <a class="nav-link ps-4 text-uppercase" aria-current="page" href="index.html">Home</a>
+                            <a class="nav-link ps-4 text-uppercase" aria-current="page" href="home.html">Home</a>
                         </li>
                         <li class="nav-item fw-bold">
                             <a class="nav-link ps-4 text-uppercase" href="aboutUs.html">About Us</a>
@@ -67,22 +67,22 @@
                     <form action="#">
                         <div class="mb-3">
                             <label for="name" class="form-label fw-bold">Name*</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label fw-bold">Email*</label>
                         <div class="input-group flex-nowrap mb-3">
                             <input type="text" class="form-control" aria-label="Username" id="email"
-                                aria-describedby="addon-wrapping"> <span class="input-group-text" id="addon-wrapping">@</span>
+                                aria-describedby="addon-wrapping" required> <span class="input-group-text" id="addon-wrapping">@</span>
                         </div>
                         <div class="mb-3">
                             <label for="subject" class="form-label fw-bold">Subject*</label>
-                            <input type="text" class="form-control" id="subject">
+                            <input type="text" class="form-control" id="subject" required>
                         </div>
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label fw-bold">Message*</label>
-                            <textarea class="form-control" id="message" rows="5"></textarea>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
                         </div>
                         <button class="text-white py-2 px-5 border-0 button-color" type="submit">Submit</button>
                     </form>

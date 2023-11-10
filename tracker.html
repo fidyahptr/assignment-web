@@ -12,33 +12,48 @@
 
 <body>
     <header class="container text-center mt-5">
-        <a class="fs-4" href="index.html">Home</a>
+        <a class="fs-4" href="home.html">Home</a>
     </header>
 
     <main class="container mt-5">
         <section>
             <h4 class="text-center fw-bold">Expense Tracker</h4>
-            <div class="tracker__card mx-auto shadow-lg mt-5">
+            <div class="tracker__card bg-white mx-auto shadow-lg mt-5">
                 <div class="">
-                    <div class="fw-bold fs-5 text-uppercase">Your Balance</div>
-                    <div id="balance" class="fw-bold">Rp 0</div>
+                    <div class="fw-bold fs-6 text-uppercase">Your Balance</div>
+                    <div id="balance" class="fw-bold fs-3">Rp 0</div>
                 </div>
-                <div class="">
-                    <div id="income"></div>
-                    <div id="expense"></div>
+                <div class="d-flex justify-content-center mt-4 text-center">
+                    <div class="border-end border-black pe-4">
+                        <div class="fw-bold text-uppercase">income</div>
+                        <div id="income" class="text-success fs-5 mt-2">+Rp 0</div>
+                    </div>
+                    <div class="ps-4">
+                        <div class="fw-bold text-uppercase">Expense</div>
+                        <div id="expense" class="text-danger fs-5 mt-2">-Rp 0</div>
+                    </div>
                 </div>
-                <div class="">
+                <div class="mt-4">
                     <div class="fw-bold fs-5">History</div>
-                    <hr>
-                    <div id="history"></div>
+                    <hr class="mt-2">
+
+                    <div id="history" class="d-flex flex-column gap-4 ">
+
+                    </div>
+
                 </div>
-                <div class="">
+                <div class="mt-4">
                     <div class="fw-bold fs-5">New transaction</div>
+                    <hr class="mt-2">
                 </div>
                 <form id="trackerForm" action="#" onsubmit="handleSubmit(event)">
-                    <input type="text" name="transactionDetail" id="transactionDetail" placeholder="Enter details..">
-                    <input type="number" name="amount" id="amount" placeholder="Enter amount..">
-                    <input type="submit" value="Add transaction">
+                    <label for="transactionDetail" class="fw-bold mb-1">Transaction Details</label>
+                    <input class="tracker__form__input w-100 mb-3 py-2 px-2" type="text" name="transactionDetail"
+                        id="transactionDetail" placeholder="Enter details..">
+                    <label for="amount" class="fw-bold mb-1">Amount (negative - expense, positive - income)</label>
+                    <input class="tracker__form__input w-100 mb-3 py-2 px-2" type="number" name="amount" id="amount"
+                        placeholder="Enter amount..">
+                    <input class="w-100 btn text-white mb-2" type="submit" value="Add transaction">
                 </form>
             </div>
         </section>
@@ -46,39 +61,63 @@
 
     <script>
         let balance = 0
-        let income = 0 
+        let income = 0
         let expense = 0
+        let currentId = 1
+
+        const newBalance = document.getElementById("balance")
+        const newIncome = document.getElementById("income")
+        const newExpense = document.getElementById("expense")
 
         const handleSubmit = (event) => {
             event.preventDefault()
+            let transaction
 
             const form = document.getElementById('trackerForm')
             const history = document.getElementById("history")
-            const newBalance = document.getElementById("balance")
-            const newIncome = document.getElementById("income")
-            const newExpense = document.getElementById("expense")
             const transactionDetail = document.getElementById('transactionDetail').value
             const amount = parseInt(document.getElementById('amount').value)
 
-            if(amount > 0 ) {
+            if (amount >= 0) {
                 income += amount
-                newIncome.textContent = income
-                console.log("income", income);
-            }else{
+                newIncome.textContent = `+Rp ${income}`
+                transaction = "income"
+            } else {
                 expense += amount
-                newExpense.textContent = expense
-                console.log("expense", expense);
+                newExpense.textContent = `-Rp ${expense}`
+                transaction = "expense"
             }
 
             balance += amount
-            console.log(balance);
             newBalance.textContent = `Rp ${balance}`
 
             newHistory = document.createElement('div')
-            newHistory.innerHTML = `${transactionDetail},,,,,,,,,,${amount}`
+            newHistory.setAttribute("class", `d-flex justify-content-between fw-light border-${transaction} pe-2`)
+            newHistory.innerHTML = `<div class="d-flex align-items-center gap-3"><svg class="history__icon__trash" onclick="deleteRow(${currentId}, ${amount})" xmlns="http://www.w3.org/2000/svg" height="1.1em" viewBox="0 0 448 512">
+                                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" /></svg>
+                                <div>${transactionDetail}</div></div><div>${amount}</div>`
+            newHistory.setAttribute("id", currentId)
             history.appendChild(newHistory)
 
+            currentId++
             form.reset()
+        }
+
+        const deleteRow = (id, amount) => {
+            const row = document.getElementById(id)
+
+            if (amount > 0) {
+                income -= amount
+                newIncome.textContent = `+Rp ${income}`
+            } else {
+                expense -= amount
+                newExpense.textContent = `-Rp ${expense}`
+            }
+
+            balance -= amount
+            newBalance.textContent = `Rp ${balance}`
+
+            row.remove()
         }
     </script>
 </body>

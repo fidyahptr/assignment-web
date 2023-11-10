@@ -6,30 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <style>
-            .image{
-                width: 50%;
-            }
-            .login-content{
-                width: 50%;
-            }
-        </style>
-    <title>Login</title>
+    <title>Register</title>
 </head>
 
 <body>
-    <main >
-        <section class="d-flex flex-column-reverse flex-md-row flex-lg-row flex-xl-row flex-xxl-row  align-items-center min-vh-100">
-            <div class="image">
-                <img class="w-100" src="assets/img/login/desktop.jpg" alt="">
-            </div>
-
-            <div class="login-content">
-                <img class="" src="assets/img/BrandName.jpg" alt="">
+    <main style="height: 100vh;">
+        <section class="row row-cols-2" style="height: 100vh;">
+            <div class="col">
+                <img class="mt-5 ms-4" src="assets/img/BrandName.jpg" alt="">
                 <div class="w-100 mx-auto gap-3 mt-auto d-flex align-items-center justify-content-center flex-column" style="height: 80vh;">
-                    <div class="fw-medium fs-3 text-start">Welcome</div>
-                    <div class="text-secondary">Login here to access your account</div>
+                    <div class="fw-medium fs-3 text-start">Register</div>
+                    <div class="text-secondary">Create your account for free</div>
                     <form id="formLogin" onsubmit="handleSubmit(event)">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Full name</label>
+                            <input type="text" class="form-control w-100" id="name" placeholder="Input your name" required>
+                        </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control w-100" id="email" placeholder="Input your email" required>
@@ -38,36 +30,28 @@
                             <label for="password" class="form-label">Password</label>
                             <input type="password" class="form-control w-100" id="password" min="3" placeholder="Input your password" required>
                         </div>
-                        <input class="w-100 btn text-white" style="background-color:#CD7B2E" type="submit" value="Login">
+                        <input class="w-100 btn text-white bg-primary" type="submit" value="Register">
                         <hr>
                     </form>
 
-                    <div class="text-secondary">Don't have an account? <a class="text-decoration-none" href="register.html">Sign up</a></div>
+                    <button type="button">Register with Google</button>
+                    <div class="text-secondary">Have an account? <a class="text-decoration-none" href="index.html">Log in</a></div>
                 </div>
+            </div>
+            <div class="col" style="height: 100vh;">
+                <img class="w-100" src="assets/img/regis/desktop.jpg" style="height: 100vh; object-fit: cover;" alt="">
             </div>
         </section>
     </main>
 
     <script>
-        
         const handleSubmit = (event) => {
             event.preventDefault()
-
+    
             const form = document.getElementById("formLogin")
-            const email = document.getElementById("email").value
-            const password = document.getElementById("password").value
-
-            const data = {
-                email: email,
-                password: password
-            }
-
-            localStorage.setItem("user", JSON.stringify(data));
             form.reset()
-
-            window.location.href = "home.html"
+            window.location.href = "login.html"
         }
-
     </script>
 </body>
 
