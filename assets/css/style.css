@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:400,600,700');
+
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.active-nav-link {
+    color: #1D88EA;
+}
+
+.nav-item {
+    font-size: 14px;
+}
+
+.button-color {
+    background-color: #328CCA;
+}
+
+footer {
+    margin-top: 8rem;
+}
+
+/* PORTOFOLIO */
+
+.nav-item-portofolio:hover {
+    background-color: #EAEAEA;
+}
