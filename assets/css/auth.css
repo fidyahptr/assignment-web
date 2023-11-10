@@ -1,0 +1,24 @@
+.background-pattern {
+    background: url('assets/img/login/desktop.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+.form__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+}
+
+.form__items {
+    max-width: 300px;
+    margin: auto;
+}
+
+@media (max-width: 767px) {
+    .background-pattern {
+        height: 50vh;
+    }
+}
