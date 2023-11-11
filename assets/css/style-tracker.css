@@ -21,7 +21,11 @@ body{
 }
 
 .btn{
-    background-color: #2D3146;
+    background-color: #2a2e45;
+}
+
+.btn:hover{
+    background-color: #484b5d;
 }
 
 .border-income{
